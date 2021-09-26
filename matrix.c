@@ -97,7 +97,13 @@ vec3 mat3_transform(mat3 T, vec3 v)
 {
 	vec3 rv = {0,0,0};
 	
-	
+	for(int i = 0; i < 3; i++)
+	{
+		for(int j = 0; j < 3; j++)
+		{
+			rv.element[i] += T.element[i][j] * v.element[j];
+		}
+	}
 	
 	return rv;
 }

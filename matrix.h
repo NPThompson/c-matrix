@@ -1,10 +1,15 @@
 // matrix.h
 
+// N.P.Thompson (2021)
+// This is free and open-source software
+
 // defines these types:
 // 3-dimensional vectors and 3x3 matrices
 // 'real' is considered the base type, typedef'd to mean float. 
 // denoted vec3 and mat3, respectively, in case others are ever added
 
+// intended use cases are quick-and-dirty graphics, number crunching,
+// or simple games/simulations.
 
 
 
@@ -48,21 +53,26 @@ typedef struct
 } mat3;
 
 
+
+// ==== vec3 operations ====
 // prints as a brace-enclosed initializer, just like C: {1,2,3}
-void mat3_print(mat3, FILE*);
-void vec3_print(vec3, FILE*);
+void vec3_print(  vec3, FILE*);
+bool vec3_equals( vec3, vec3);
 
 
 
-mat3 mat3_product(mat3, mat3);
+// ==== mat3 operations ====
+void mat3_print(    mat3, FILE*);
+bool mat3_equals(   mat3, mat3);
+mat3 mat3_product(  mat3, mat3);
+real mat3_max_diff( mat3, mat3);
 
 
 
-bool  mat3_equals(mat3, mat3);
-bool  vec3_equals(vec3, vec3);
-real mat3_max_diff(mat3,mat3);
+// ==== other operations ====
+// Ax -> y, where x and y are vectors and A is a matrix
+vec3 mat3_transform( mat3, vec3);
 
-vec3 mat3_transform(mat3,vec3);
 
 
 #endif

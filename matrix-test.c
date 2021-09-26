@@ -93,15 +93,15 @@ void test_multiplication_by_identity_matrix_yields_same()
 
 void test_multiplication_of_matrices_is_correct()
 {
-	mat3 A = {1,1,1,
+	mat3 A = 	 {1,1,1,
 				  1,1,1,
 				  1,1,1};
 				  
-	mat3 B = {1,2,3,
+	mat3 B = 	 {1,2,3,
 				  1,2,3,
 				  1,2,3};
 				  
-	mat3 C = {3,6,9,
+	mat3 C = 	 {3,6,9,
 				  3,6,9,
 				  3,6,9};
 	
@@ -109,15 +109,15 @@ void test_multiplication_of_matrices_is_correct()
 	
 	
 	
-	mat3 D = {0,3,1,
+	mat3 D = 	 {0,3,1,
 				  1,0,1,
 				  3,2,1};
 				  
-	mat3 E = {4,1,3,
+	mat3 E = 	 {4,1,3,
 				  2,3,0,
 				  0,1,2};
 				  
-	mat3 F = {6,10,2,
+	mat3 F = 	 {6,10,2,
 				  4,2,5,
 				  16,10,11};
 	
