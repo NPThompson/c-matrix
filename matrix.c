@@ -139,7 +139,10 @@ real vec3_dot( vec3 u, vec3 v)
 
 vec3 vec3_cross( vec3 v, vec3 w)
 {
-	vec3 rv = {0,0,0};
-	
-	return rv;
+	vec3 rv =
+	{ v.element[1] * w.element[2] - w.element[1] * v.element[2],
+	  v.element[2] * w.element[0] - w.element[2] * v.element[0],
+	  v.element[0] * w.element[1] - w.element[0] * v.element[1]};	
+
+    return rv;
 }
