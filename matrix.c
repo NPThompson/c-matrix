@@ -146,3 +146,17 @@ vec3 vec3_cross( vec3 v, vec3 w)
 
     return rv;
 }
+
+
+
+real vec3_length( vec3 v )
+{
+	real rv = 0.0;
+	
+	for(int i = 0; i < 3; i++)
+	{
+		rv += v.element[i] * v.element[i];
+	}
+	
+	return sqrt(rv);
+}

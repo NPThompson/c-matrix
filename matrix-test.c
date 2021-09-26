@@ -173,8 +173,23 @@ void test_cross_product_is_correct()
 	vec3 neg_u = {0,0,-1};	
 	
 	VECTOR_EXPECTED( vec3_cross(v,w), u );
+
+	// anticommutativity:
+	// cross product has this property, that 
+	// changing the order of the operands flips
+	// the sign of the result
+	// e.g.  wv == - vw
 	VECTOR_EXPECTED( vec3_cross(w,v), neg_u );
 }
+
+
+
+void test_length_is_correct()
+{
+	vec3 v = {0,3,4};
+	
+	SCALAR_EXPECTED( vec3_length(v), 5.0 );
+}	
 
 
 
@@ -187,6 +202,7 @@ int main(int argc, char** argv)
 	test_transformation_by_matrix_is_correct();
 	test_dot_product_is_correct();
 	test_cross_product_is_correct();
+	test_length_is_correct();
 	
 	return 0;
 }
