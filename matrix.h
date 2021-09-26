@@ -58,6 +58,7 @@ typedef struct
 // prints as a brace-enclosed initializer, just like C: {1,2,3}
 void vec3_print(  vec3, FILE*);
 bool vec3_equals( vec3, vec3);
+real vec3_dot(    vec3, vec3);
 
 
 

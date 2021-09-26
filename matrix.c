@@ -122,3 +122,8 @@ bool vec3_equals(vec3 A, vec3 B)
 }
 
 
+
+real vec3_dot( vec3 u, vec3 v)
+{
+	return 0.0;
+}

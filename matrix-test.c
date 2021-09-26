@@ -17,10 +17,15 @@
 
  
 
+#include<math.h>
 #include"matrix.h"
 #include<stdio.h>
 
 
+// the inputs are integers, and we only perform one
+// operation, so a tolerance of a ten-thousandth is
+// good enough for our purposes.
+#define TEST_FLOAT_TOLERANCE 0.0001
 
 
 // these macros take two arguments, compare them,
@@ -46,10 +51,10 @@
 
  
 #define SCALAR_EXPECTED(A,B)\
- if(A != B)\
+ if(fabs(A-B) > TEST_FLOAT_TOLERANCE)\
  { printf("%s() failed:\n " #A " = ", __func__);\
    fprintf(stdout, "%.2f", A);\
-   fprintf(stdout, "\n expected %d\n", B);\
+   fprintf(stdout, "\n expected %.2f\n", B);\
  }
  
 
@@ -149,6 +154,17 @@ void test_transformation_by_matrix_is_correct()
 }
 
 
+
+void test_dot_product_is_correct()
+{
+	vec3 v = {4,2,0};
+	vec3 w = {3,1,4};
+	
+	SCALAR_EXPECTED( vec3_dot(v,w), 14.0);
+}
+
+
+
 int main(int argc, char** argv)
 {	
 	test_indices_notation_is_correct();
@@ -156,6 +172,7 @@ int main(int argc, char** argv)
 	test_multiplication_of_matrices_is_correct();
 	test_transformation_by_identity_matrix_yields_same();
 	test_transformation_by_matrix_is_correct();
+	test_dot_product_is_correct();
 	
 	return 0;
 }
