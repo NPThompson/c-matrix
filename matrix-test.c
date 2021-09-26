@@ -135,12 +135,27 @@ void test_transformation_by_identity_matrix_yields_same()
 
 
 
+void test_transformation_by_matrix_is_correct()
+{
+	vec3 v = {0,1,2};
+	
+	mat3 M = {0,2,1,
+			  3,1,0,
+			  0,3,2};
+			  
+	vec3 w = {0,0,0};
+	
+	VECTOR_EXPECTED( mat3_transform(M,v), w);
+}
+
+
 int main(int argc, char** argv)
 {	
 	test_indices_notation_is_correct();
 	test_multiplication_by_identity_matrix_yields_same();
 	test_multiplication_of_matrices_is_correct();
 	test_transformation_by_identity_matrix_yields_same();
+	test_transformation_by_matrix_is_correct();
 	
 	return 0;
 }
