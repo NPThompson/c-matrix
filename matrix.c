@@ -125,5 +125,12 @@ bool vec3_equals(vec3 A, vec3 B)
 
 real vec3_dot( vec3 u, vec3 v)
 {
-	return 0.0;
+	real rv = 0.0;
+	
+	for(int i = 0; i < 3; i++)
+	{
+		rv += u.element[i] * v.element[i];
+	}
+	
+	return rv;
 }
