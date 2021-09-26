@@ -143,7 +143,7 @@ void test_transformation_by_matrix_is_correct()
 			  3,1,0,
 			  0,3,2};
 			  
-	vec3 w = {0,0,0};
+	vec3 w = {4,1,7};
 	
 	VECTOR_EXPECTED( mat3_transform(M,v), w);
 }
