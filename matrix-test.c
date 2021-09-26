@@ -26,21 +26,21 @@
 // these macros take two arguments, compare them,
 // and complain if they aren't equal
 #define MATRIX_EXPECTED(A,B)\
- if(!float3x3_equals(A,B))\
+ if(!mat3_equals(A,B))\
  { printf("%s() failed:\n " #A " = \n", __func__);\
-   float3x3_print(A, stdout);\
+   mat3_print(A, stdout);\
    printf("\n expected ");\
-   float3x3_print(B, stdout);\
+   mat3_print(B, stdout);\
  }
 
  
  
 #define VECTOR_EXPECTED(A,B)\
- if(!float3_equals(A,B))\
+ if(!vec3_equals(A,B))\
  { printf("%s() failed:\n " #A " = \n", __func__);\
-   float3_print(A, stdout);\
+   vec3_print(A, stdout);\
    printf("\n expected ");\
-   float3_print(B, stdout);\
+   vec3_print(B, stdout);\
  }
  
 
@@ -53,7 +53,7 @@
  }
  
 
-float3x3 I = {1,0,0,0,1,0,0,0,1};
+mat3 I = {1,0,0,0,1,0,0,0,1};
 
 
 // following the mathematical convention,
@@ -67,7 +67,7 @@ float3x3 I = {1,0,0,0,1,0,0,0,1};
 // index and not 1
 void test_indices_notation_is_correct()
 {
-	float3x3 M = 
+	mat3 M = 
 	{
 		1,2,3,
 		4,5,6,
@@ -84,53 +84,53 @@ void test_indices_notation_is_correct()
 
 void test_multiplication_by_identity_matrix_yields_same()
 {
-	float3x3 M = {1,2,3,4,5,6,7,8,9};
+	mat3 M = {1,2,3,4,5,6,7,8,9};
 	
-	MATRIX_EXPECTED( float3x3_product(M, I), M);
+	MATRIX_EXPECTED( mat3_product(M, I), M);
 }
 
 
 
 void test_multiplication_of_matrices_is_correct()
 {
-	float3x3 A = {1,1,1,
+	mat3 A = {1,1,1,
 				  1,1,1,
 				  1,1,1};
 				  
-	float3x3 B = {1,2,3,
+	mat3 B = {1,2,3,
 				  1,2,3,
 				  1,2,3};
 				  
-	float3x3 C = {3,6,9,
+	mat3 C = {3,6,9,
 				  3,6,9,
 				  3,6,9};
 	
-	MATRIX_EXPECTED( float3x3_product(A,B), C );
+	MATRIX_EXPECTED( mat3_product(A,B), C );
 	
 	
 	
-	float3x3 D = {0,3,1,
+	mat3 D = {0,3,1,
 				  1,0,1,
 				  3,2,1};
 				  
-	float3x3 E = {4,1,3,
+	mat3 E = {4,1,3,
 				  2,3,0,
 				  0,1,2};
 				  
-	float3x3 F = {6,10,2,
+	mat3 F = {6,10,2,
 				  4,2,5,
 				  16,10,11};
 	
-	MATRIX_EXPECTED( float3x3_product(D,E), F );
+	MATRIX_EXPECTED( mat3_product(D,E), F );
 }
 
 
 
 void test_transformation_by_identity_matrix_yields_same()
 {
-	float3 v = {1,2,3};
+	vec3 v = {1,2,3};
 	
-	VECTOR_EXPECTED( float3x3_transform(I,v), v );
+	VECTOR_EXPECTED( mat3_transform(I,v), v );
 }
 
 

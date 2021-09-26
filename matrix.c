@@ -5,7 +5,7 @@
 
 
 
-void float3x3_print(float3x3 matrix, FILE* out)
+void mat3_print(mat3 matrix, FILE* out)
 {
 	fprintf(out, "{\n");
 	for(int i = 0; i < 3; i++)
@@ -23,7 +23,7 @@ void float3x3_print(float3x3 matrix, FILE* out)
 
 
 
-void float3_print(float3 vector, FILE* out)
+void vec3_print(vec3 vector, FILE* out)
 {
 	fprintf(out, "{ ");
 	for(int i = 0; i < 3; i++)
@@ -36,9 +36,9 @@ void float3_print(float3 vector, FILE* out)
 
 
 
-float3x3 float3x3_product(float3x3 A, float3x3 B)
+mat3 mat3_product(mat3 A, mat3 B)
 {
-	float3x3 rv = {0,0,0,
+	mat3 rv = {0,0,0,
 				   0,0,0,
 				   0,0,0};
 	
@@ -58,7 +58,7 @@ float3x3 float3x3_product(float3x3 A, float3x3 B)
 
 
 // relies on the global constant, FLOAT_TOLERANCE to determine equality
-bool float3x3_equals(float3x3 A, float3x3 B)
+bool mat3_equals(mat3 A, mat3 B)
 {
 	for(int i = 0; i < 3; i++)
 	{
@@ -73,10 +73,10 @@ bool float3x3_equals(float3x3 A, float3x3 B)
 
 
 
-float float3x3_max_diff(float3x3 A, float3x3 B)
+float mat3_max_diff(mat3 A, mat3 B)
 {
-	float max_diff = 0;
-	float diff = 0;
+	real max_diff = 0;
+	real diff = 0;
 	
 	for(int i = 0; i < 3; i++)
 	{
@@ -93,9 +93,9 @@ float float3x3_max_diff(float3x3 A, float3x3 B)
 
 
 
-float3 float3x3_transform(float3x3 T, float3 v)
+vec3 mat3_transform(mat3 T, vec3 v)
 {
-	float3 rv = {0,0,0};
+	vec3 rv = {0,0,0};
 	
 	
 	
@@ -105,7 +105,7 @@ float3 float3x3_transform(float3x3 T, float3 v)
 
 
 // relies on the global constant, FLOAT_TOLERANCE to determine equality
-bool float3_equals(float3 A, float3 B)
+bool vec3_equals(vec3 A, vec3 B)
 {
 	for(int i = 0; i < 3; i++)
 	{

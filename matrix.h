@@ -1,8 +1,9 @@
 // matrix.h
 
 // defines these types:
-// 3-dimensional vectors and 3x3 matrices, using floats as the base type
-// denoted float3 and float3x3, respectively, in case others are ever added
+// 3-dimensional vectors and 3x3 matrices
+// 'real' is considered the base type, typedef'd to mean float. 
+// denoted vec3 and mat3, respectively, in case others are ever added
 
 
 
@@ -32,32 +33,36 @@ typedef int bool;
 
 
 
+typedef float real;
+
+
+
 typedef struct 
 {
-	float element[3];
-} float3;
+	real element[3];
+} vec3;
 
 typedef struct
 {
-	float element[3][3];
-} float3x3;
+	real element[3][3];
+} mat3;
 
 
 // prints as a brace-enclosed initializer, just like C: {1,2,3}
-void float3x3_print(float3x3, FILE*);
-void float3_print(float3, FILE*);
+void mat3_print(mat3, FILE*);
+void vec3_print(vec3, FILE*);
 
 
 
-float3x3 float3x3_product(float3x3, float3x3);
+mat3 mat3_product(mat3, mat3);
 
 
 
-bool  float3x3_equals(float3x3, float3x3);
-bool  float3_equals(float3, float3);
-float float3x3_max_diff(float3x3,float3x3);
+bool  mat3_equals(mat3, mat3);
+bool  vec3_equals(vec3, vec3);
+real mat3_max_diff(mat3,mat3);
 
-float3 float3x3_transform(float3x3,float3);
+vec3 mat3_transform(mat3,vec3);
 
 
 #endif
