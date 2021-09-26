@@ -134,3 +134,12 @@ real vec3_dot( vec3 u, vec3 v)
 	
 	return rv;
 }
+
+
+
+vec3 vec3_cross( vec3 v, vec3 w)
+{
+	vec3 rv = {0,0,0};
+	
+	return rv;
+}

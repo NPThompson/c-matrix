@@ -59,6 +59,7 @@ typedef struct
 void vec3_print(  vec3, FILE*);
 bool vec3_equals( vec3, vec3);
 real vec3_dot(    vec3, vec3);
+vec3 vec3_cross(  vec3, vec3);
 
 
 

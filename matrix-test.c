@@ -165,6 +165,17 @@ void test_dot_product_is_correct()
 
 
 
+void test_cross_product_is_correct()
+{
+	vec3 v = {1,0,0};
+	vec3 w = {0,1,0};
+	vec3 u = {0,0,1};
+	
+	VECTOR_EXPECTED( vec3_cross(v,w), u );
+}
+
+
+
 int main(int argc, char** argv)
 {	
 	test_indices_notation_is_correct();
@@ -173,6 +184,7 @@ int main(int argc, char** argv)
 	test_transformation_by_identity_matrix_yields_same();
 	test_transformation_by_matrix_is_correct();
 	test_dot_product_is_correct();
+	test_cross_product_is_correct();
 	
 	return 0;
 }
