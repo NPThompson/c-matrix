@@ -170,8 +170,10 @@ void test_cross_product_is_correct()
 	vec3 v = {1,0,0};
 	vec3 w = {0,1,0};
 	vec3 u = {0,0,1};
+	vec3 neg_u = {0,0,-1};	
 	
 	VECTOR_EXPECTED( vec3_cross(v,w), u );
+	VECTOR_EXPECTED( vec3_cross(w,v), neg_u );
 }
 
 
