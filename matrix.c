@@ -149,6 +149,36 @@ vec3 vec3_cross( vec3 v, vec3 w)
 
 
 
+vec3 vec3_scale( vec3 v, real s)
+{
+	vec3 rv = {v.element[0] * s,
+			   v.element[1] * s,
+			   v.element[2] * s};
+			   
+	return rv;
+}
+
+
+
+vec3 vec3_add( vec3 v, vec3 w)
+{
+	vec3 rv = { v.element[0] + w.element[0],
+				v.element[1] + w.element[1],
+				v.element[2] + w.element[2]
+	};
+	
+	return rv;
+}
+
+
+
+vec3 vec3_sub( vec3 v, vec3 w)
+{
+	return vec3_add( v, vec3_scale(w,-1));
+}
+
+
+
 real vec3_length( vec3 v )
 {
 	real rv = 0.0;

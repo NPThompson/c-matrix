@@ -184,6 +184,30 @@ void test_cross_product_is_correct()
 
 
 
+void test_addition_is_correct()
+{
+	vec3 v = {0,3,4};
+	vec3 w = {1,2,0};
+	vec3 u = {1,5,4};
+	
+	VECTOR_EXPECTED( vec3_add(v,w),  u);
+	VECTOR_EXPECTED( vec3_sub(u,w),  v);
+}	
+
+
+
+void test_scaling_is_correct()
+{
+	vec3 v = {1,3,7};
+	real s = 10;
+	
+	vec3 w = {10,30,70};
+	
+	VECTOR_EXPECTED( vec3_scale(v,s), w);
+}
+
+
+
 void test_length_is_correct()
 {
 	vec3 v = {0,3,4};
@@ -196,13 +220,18 @@ void test_length_is_correct()
 int main(int argc, char** argv)
 {	
 	test_indices_notation_is_correct();
+	
+	test_scaling_is_correct();
+	test_addition_is_correct();
+	test_dot_product_is_correct();
+	test_length_is_correct();
+	test_cross_product_is_correct();
+	
 	test_multiplication_by_identity_matrix_yields_same();
 	test_multiplication_of_matrices_is_correct();
 	test_transformation_by_identity_matrix_yields_same();
 	test_transformation_by_matrix_is_correct();
-	test_dot_product_is_correct();
-	test_cross_product_is_correct();
-	test_length_is_correct();
 	
+
 	return 0;
 }

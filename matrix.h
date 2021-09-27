@@ -58,11 +58,16 @@ typedef struct
 // prints as a brace-enclosed initializer, just like C: {1,2,3}
 void vec3_print(  vec3, FILE*);
 bool vec3_equals( vec3, vec3);
-real vec3_dot(    vec3, vec3);
-vec3 vec3_cross(  vec3, vec3);
 // since the number of components is already given, there should
 // be no confusion about what 'length' refers to(magnitude).
 real vec3_length( vec3);
+
+vec3 vec3_scale(  vec3, real);
+vec3 vec3_add(    vec3, vec3);
+vec3 vec3_sub(    vec3, vec3);
+
+real vec3_dot(    vec3, vec3);
+vec3 vec3_cross(  vec3, vec3);
 
 
 
